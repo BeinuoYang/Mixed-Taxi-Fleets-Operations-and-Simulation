@@ -8,7 +8,7 @@ dependency installation, and how to run the simulation.
 
 ### 1. Create the virtual environment
 
-Create a new virtual environment in an Anaconda Prompt with all the packages listed in environment.yml. 
+Create a new virtual environment in an Anaconda Prompt with all the packages listed in `hybrid_taxi_system.yml`. 
 The default name of the environment is called `hybrid-taxi-system`
 
     conda env create -f hybrid_taxi_system.yml
