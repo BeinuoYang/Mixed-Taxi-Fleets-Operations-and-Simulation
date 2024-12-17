@@ -1,0 +1,9 @@
+The simulation will generate two CSV files:
+
+- `{}-{}-pedestrians.csv`
+- `{}-{}-vehicles.csv`
+
+The `{}` placeholders are replaced with:
+
+The first bracket: the number of parking lots.
+The second bracket: the percentage distribution of the three taxi types (AET:HET:HGT).

@@ -1,0 +1,81 @@
+{
+  "instance_name": "vehicle_demo_hybrid",
+  "start_time": "12/4/2018, 17:00:00",
+  "end_time": "14/4/2018, 18:00:00",
+  "horizon": 300,
+  "viewmap": "30.352,120.213,30.264,120.05",
+  "image_bounds": "30.352,120.213,30.264,120.05",
+  "osrm_port": 5000,
+  "instance_data_dir": "vehicle_demo_hybrid/data",
+  "output_dir": "vehicle_demo_hybrid/output",
+  "fixed_bounds": "True",
+  "weight_label": "length",
+  "optimization": true,
+  "network": {
+    "file": "vehicle_demo_hybrid/data/network_HZ.graphml",
+    "weight_label": "length"
+  },
+  "parkinglot": {
+    "num": 20
+  },
+  "vehicles": {
+    "num": 3000,
+    "percent_per_type": [0.5, 0.3, 0.2],
+    "HV_online_percent": [0.06, 0.29, 0.4, 0.25]
+  },
+  "configurations": [
+    {
+      "controller": "vehicle_demo_hybrid.controllers.pedestrians.controller.PedestrianController",
+      "guid": 200
+    },
+    {
+      "settings": "core.controller.ControllerSettings",
+      "guid": 210,
+      "owner": "vehicle_demo_hybrid.controllers.pedestrians.controller.PedestrianController",
+      "owner_id": 200
+    },
+    {
+      "controller": "vehicle_demo_hybrid.controllers.network.controller.NetworkController",
+      "guid": 200
+    },
+    {
+      "settings": "vehicle_demo_hybrid.controllers.network.controller.NetworkControllerSettings",
+      "guid": 210,
+      "owner": "vehicle_demo_hybrid.controllers.network.controller.NetworkController",
+      "owner_id": 200
+    },
+    {
+      "controller": "vehicle_demo_hybrid.controllers.parking_lot.controller.ParkingLotController",
+      "guid": 200
+    },
+    {
+      "settings": "core.controller.ControllerSettings",
+      "guid": 210,
+      "owner": "vehicle_demo_hybrid.controllers.parking_lot.controller.ParkingLotController",
+      "owner_id": 200
+    },
+    {
+      "controller": "vehicle_demo_hybrid.controllers.vehicles.controller.VehicleController",
+      "guid": 100
+    },
+    {
+      "settings": "vehicle_demo_hybrid.controllers.vehicles.controller.VehicleControllerSettings",
+      "guid": 110,
+      "owner": "vehicle_demo_hybrid.controllers.vehicles.controller.VehicleController",
+      "owner_id": 100
+    }
+  ],
+  "features": [
+    {
+      "feature": "vehicle_demo_hybrid.controllers.vehicles.EnergyFeature",
+      "guid": 500
+    },
+    {
+      "settings": "core.feature.FeatureSettings",
+      "feature_name": "EnergyModel",
+      "guid": 510,
+      "owner": "vehicle_demo_hybrid.controllers.vehicles.EnergyFeature",
+      "owner_id": 500
+    }
+  ]
+}
